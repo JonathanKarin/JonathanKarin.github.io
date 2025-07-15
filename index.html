@@ -1,10 +1,288 @@
-<html>
-  <head>
-    <title>
-      Jonathan Karin
-    </title>
-  </head>
-  <body>
-    33333
-  </body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jonathan Karin</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #fff;
+            font-size: 16px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .header {
+            margin-bottom: 40px;
+        }
+
+        .name {
+            font-size: 2.5rem;
+            font-weight: 600;
+            margin-bottom: 30px;
+            color: #222;
+        }
+
+        .profile-section {
+            display: flex;
+            gap: 30px;
+            margin-bottom: 40px;
+            align-items: flex-start;
+        }
+
+        .profile-image {
+            flex-shrink: 0;
+        }
+
+        .profile-image img {
+            width: 200px;
+            height: 200px;
+            border-radius: 8px;
+            object-fit: cover;
+            border: 1px solid #eee;
+        }
+
+        .profile-content {
+            flex: 1;
+        }
+
+        .bio {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+
+        .bio a {
+            color: #0066cc;
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border-bottom-color 0.2s;
+        }
+
+        .bio a:hover {
+            border-bottom-color: #0066cc;
+        }
+
+        .contact-info {
+            margin-bottom: 30px;
+        }
+
+        .contact-info a {
+            color: #0066cc;
+            text-decoration: none;
+            margin-right: 20px;
+            font-weight: 500;
+        }
+
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 25px;
+            color: #222;
+            border-bottom: 2px solid #f0f0f0;
+            padding-bottom: 8px;
+        }
+
+        .publication {
+            margin-bottom: 25px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #f5f5f5;
+        }
+
+        .publication:last-child {
+            border-bottom: none;
+        }
+
+        .pub-title {
+            font-weight: 600;
+            color: #222;
+            margin-bottom: 5px;
+            font-size: 1.1rem;
+        }
+
+        .pub-authors {
+            color: #666;
+            margin-bottom: 5px;
+        }
+
+        .pub-venue {
+            color: #0066cc;
+            font-weight: 500;
+            margin-bottom: 5px;
+        }
+
+        .pub-year {
+            color: #888;
+            font-size: 0.95rem;
+        }
+
+        .research-interests {
+            margin-bottom: 40px;
+        }
+
+        .interests-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .interest-tag {
+            background: #f8f9fa;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            color: #555;
+            border: 1px solid #e9ecef;
+        }
+
+        .news-section {
+            margin-bottom: 40px;
+        }
+
+        .news-item {
+            margin-bottom: 15px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .news-item:before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: #0066cc;
+            font-weight: bold;
+        }
+
+        .news-date {
+            color: #888;
+            font-size: 0.9rem;
+            margin-right: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .profile-section {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .profile-image img {
+                width: 150px;
+                height: 150px;
+            }
+            
+            .name {
+                font-size: 2rem;
+            }
+            
+            .container {
+                padding: 20px 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1 class="name">Jonathan Karin</h1>
+        </div>
+
+        <div class="profile-section">
+            <div class="profile-image">
+                <img src="assets/img/jonathan_karin.jpg" alt="Jonathan Karin">
+            </div>
+            <div class="profile-content">
+                <div class="bio">
+                    I am a researcher specializing in <a href="#">computational biology</a> and <a href="#">graph signal processing</a>. My work focuses on analyzing complex biological systems using advanced computational methods and mathematical modeling. I am particularly interested in understanding how biological networks function and evolve, and how we can leverage graph-based approaches to uncover hidden patterns in biological data.
+                </div>
+                <div class="contact-info">
+                    <a href="mailto:jonathan.karin@example.com">Email</a>
+                    <a href="https://scholar.google.com/citations?user=IQDSHwwAAAAJ&hl=iw&oi=ao">Google Scholar</a>
+                    <a href="https://github.com/jonathankarin">GitHub</a>
+                    <a href="https://linkedin.com/in/jonathankarin">LinkedIn</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="research-interests">
+            <h2 class="section-title">Research Interests</h2>
+            <div class="interests-list">
+                <span class="interest-tag">Computational Biology</span>
+                <span class="interest-tag">Graph Signal Processing</span>
+                <span class="interest-tag">Complex Biological Systems</span>
+                <span class="interest-tag">Network Analysis</span>
+                <span class="interest-tag">Mathematical Modeling</span>
+                <span class="interest-tag">Bioinformatics</span>
+                <span class="interest-tag">Systems Biology</span>
+            </div>
+        </div>
+
+        <div class="news-section">
+            <h2 class="section-title">Recent News</h2>
+            <div class="news-item">
+                <span class="news-date">2025:</span>
+                New paper on graph-based analysis of biological networks accepted for publication
+            </div>
+            <div class="news-item">
+                <span class="news-date">2024:</span>
+                Presented research at the International Conference on Computational Biology
+            </div>
+            <div class="news-item">
+                <span class="news-date">2024:</span>
+                Awarded research grant for studying complex biological systems
+            </div>
+        </div>
+
+        <div class="publications">
+            <h2 class="section-title">Selected Publications</h2>
+            
+            <div class="publication">
+                <div class="pub-title">Enhancing Swarms Durability to Threats via Graph Signal Processing and GNN-based Generative Modeling</div>
+                <div class="pub-authors">J. Karin, Z. Piran, M. Nitzan</div>
+                <div class="pub-venue">arXiv preprint arXiv:2507.03039</div>
+                <div class="pub-year">2025</div>
+            </div>
+
+            <div class="publication">
+                <div class="pub-title">Deep learning training dynamics analysis for single-cell data</div>
+                <div class="pub-authors">J. Karin, R. Mintz</div>
+                <div class="pub-venue">Nature Computational Science</div>
+                <div class="pub-year">2025</div>
+            </div>
+
+
+            <div class="publication">
+                <div class="pub-title">Interpreting single-cell and spatial omics data using deep neural network training dynamics</div>
+                <div class="pub-authors">J. Karin, R. Mintz, B. Raveh, M. Nitzan</div>
+                <div class="pub-venue">Nature Computational Science</div>
+                <div class="pub-year">2021</div>
+            </div>
+
+            <div class="publication">
+                <div class="pub-title">Multirbp: multi-task neural network for protein-RNA binding prediction</div>
+                <div class="pub-authors">J. Karin, H. Michel, Y. Orenstein</div>
+                <div class="pub-venue">Proceedings of the 12th ACM International Conference on Bioinformatics, Computational Biology, and Health Informatics</div>
+                <div class="pub-year">2023</div>
+            </div>
+        </div>
+    </div>
+</body>
 </html>
