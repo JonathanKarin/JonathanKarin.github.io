@@ -26,13 +26,11 @@
             padding: 0;
         }
 
-        /* White section - everything until the buttons */
         .white-section {
             background: white;
             padding: 40px 20px 30px 20px;
         }
 
-        /* Light green section - everything below the buttons */
         .green-section {
             background: #e8f5e8;
             padding: 30px 0 40px 0;
@@ -45,7 +43,6 @@
             min-height: 100vh;
         }
 
-        /* Content wrapper inside green section */
         .green-content {
             max-width: 800px;
             margin: 0 auto;
@@ -106,7 +103,7 @@
         .contact-info {
             margin-bottom: 0;
             display: flex;
-            flex-wrap: wrap;
+            flex-wrap: nowrap; /* Changed to nowrap to keep icons in one line */
             gap: 12px;
         }
 
@@ -201,7 +198,7 @@
         }
 
         .interest-tag {
-            background: #f8f9fa;
+            background: #fff; /* Changed to white background */
             padding: 8px 16px;
             border-radius: 20px;
             font-size: 0.9rem;
@@ -258,6 +255,7 @@
             }
 
             .contact-info {
+                flex-wrap: wrap; /* Allow wrapping on smaller screens for responsiveness */
                 justify-content: center;
                 gap: 10px;
             }
@@ -292,7 +290,7 @@
                         <a href="https://www.linkedin.com/in/jonathan-karin/">
                             <img src="linkedin.svg" alt="LinkedIn">
                             LinkedIn
-                        </a><br />
+                        </a>
                         <a href="https://x.com/JonathanKarin3">
                             <img src="twitter-icon.png" alt="Twitter">
                             Twitter
