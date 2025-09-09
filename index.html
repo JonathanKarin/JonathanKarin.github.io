@@ -103,7 +103,7 @@
         .contact-info {
             margin-bottom: 0;
             display: flex;
-            flex-wrap: nowrap; /* Changed to nowrap to keep icons in one line */
+            flex-wrap: nowrap;
             gap: 12px;
         }
 
@@ -192,18 +192,19 @@
 
         .interests-list {
             display: flex;
-            flex-wrap: wrap;
+            flex-wrap: nowrap; /* Changed to nowrap to keep tags in one line */
             gap: 15px;
             margin-top: 15px;
         }
 
         .interest-tag {
-            background: #fff; /* Changed to white background */
+            background: #fff; /* White background as requested */
             padding: 8px 16px;
             border-radius: 20px;
             font-size: 0.9rem;
             color: #555;
             border: 1px solid #e9ecef;
+            white-space: nowrap; /* Prevent text wrapping inside tags */
         }
 
         .news-section {
@@ -255,9 +256,13 @@
             }
 
             .contact-info {
-                flex-wrap: wrap; /* Allow wrapping on smaller screens for responsiveness */
+                flex-wrap: wrap;
                 justify-content: center;
                 gap: 10px;
+            }
+
+            .interests-list {
+                flex-wrap: wrap; /* Allow wrapping on smaller screens for responsiveness */
             }
         }
     </style>
