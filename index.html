@@ -23,7 +23,19 @@
         .container {
             max-width: 800px;
             margin: 0 auto;
-            padding: 40px 20px;
+            padding: 0;
+        }
+
+        /* White section - everything until the buttons */
+        .white-section {
+            background: white;
+            padding: 40px 20px 30px 20px;
+        }
+
+        /* Light green section - everything below the buttons */
+        .green-section {
+            background: #e8f5e8;
+            padding: 30px 20px 40px 20px;
         }
 
         .header {
@@ -78,7 +90,7 @@
         }
 
         .contact-info {
-            margin-bottom: 30px;
+            margin-bottom: 0;
             display: flex;
             flex-wrap: wrap;
             gap: 12px;
@@ -222,7 +234,7 @@
                 font-size: 2rem;
             }
             
-            .container {
+            .white-section, .green-section {
                 padding: 20px 15px;
             }
 
@@ -235,89 +247,95 @@
 </head>
 <body>
     <div class="container">
-        <div class="header">
-            <h1 class="name">Jonathan Karin</h1>
-        </div>
-
-        <div class="profile-section">
-            <div class="profile-image">
-                <img src="DSC_0038.jpg" alt="Jonathan Karin">
+        <!-- White section: Everything until the buttons -->
+        <div class="white-section">
+            <div class="header">
+                <h1 class="name">Jonathan Karin</h1>
             </div>
-            <div class="profile-content">
-                <div class="bio">
-                    I am a PhD student at the <a href="https://www.nitzanlab.com/">Mor Nitzan Lab</a> at the <a href="https://www.cs.huji.ac.il/">School of Computer Science & Engineering</a> at <a href="https://www.huji.ac.il/">The Hebrew University of Jerusalem</a>. Before joining the lab, I worked at Intel Corporation as a hardware designer. I completed my B.Sc. in Computer Engineering at <a href="https://in.bgu.ac.il/">Ben-Gurion University</a> and my M.Sc. in Computer Science at The Hebrew University of Jerusalem. My research focuses on computational biology and graph signal processing, with a particular emphasis on linking topology to function in biological processes using advanced computational methods and mathematical modeling.
+
+            <div class="profile-section">
+                <div class="profile-image">
+                    <img src="DSC_0038.jpg" alt="Jonathan Karin">
                 </div>
-                <div class="contact-info">
-                    <a href="mailto:jonathan.karin@mail.huji.ac.il">
-                        <img src="gmail.png" alt="Email">
-                        Email
-                    </a>
-                    <a href="https://scholar.google.com/citations?user=IQDSHwwAAAAJ&hl=iw&oi=ao">
-                        <img src="scholar.png" alt="Scholar">
-                        Scholar
-                    </a>
-                    <a href="https://www.linkedin.com/in/jonathan-karin/">
-                        <img src="linkedin.svg" alt="LinkedIn">
-                        LinkedIn
-                    </a><br />
-                    <a href="https://x.com/JonathanKarin3">
-                        <img src="twitter-icon.png" alt="Twitter">
-                        Twitter
-                    </a>
-                    <a href="https://bsky.app/profile/jonathankarin.bsky.social">
-                        <img src="bluesky-icon.png" alt="BlueSky">
-                        BlueSky
-                    </a>
+                <div class="profile-content">
+                    <div class="bio">
+                        I am a PhD student at the <a href="https://www.nitzanlab.com/">Mor Nitzan Lab</a> at the <a href="https://www.cs.huji.ac.il/">School of Computer Science & Engineering</a> at <a href="https://www.huji.ac.il/">The Hebrew University of Jerusalem</a>. Before joining the lab, I worked at Intel Corporation as a hardware designer. I completed my B.Sc. in Computer Engineering at <a href="https://in.bgu.ac.il/">Ben-Gurion University</a> and my M.Sc. in Computer Science at The Hebrew University of Jerusalem. My research focuses on computational biology and graph signal processing, with a particular emphasis on linking topology to function in biological processes using advanced computational methods and mathematical modeling.
+                    </div>
+                    <div class="contact-info">
+                        <a href="mailto:jonathan.karin@mail.huji.ac.il">
+                            <img src="gmail.png" alt="Email">
+                            Email
+                        </a>
+                        <a href="https://scholar.google.com/citations?user=IQDSHwwAAAAJ&hl=iw&oi=ao">
+                            <img src="scholar.png" alt="Scholar">
+                            Scholar
+                        </a>
+                        <a href="https://www.linkedin.com/in/jonathan-karin/">
+                            <img src="linkedin.svg" alt="LinkedIn">
+                            LinkedIn
+                        </a><br />
+                        <a href="https://x.com/JonathanKarin3">
+                            <img src="twitter-icon.png" alt="Twitter">
+                            Twitter
+                        </a>
+                        <a href="https://bsky.app/profile/jonathankarin.bsky.social">
+                            <img src="bluesky-icon.png" alt="BlueSky">
+                            BlueSky
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
 
-        <div class="research-interests">
-            <h2 class="section-title">Research Interests</h2>
-            <div class="interests-list">
-                <span class="interest-tag">Computational Biology</span>
-                <span class="interest-tag">Graph Signal Processing</span>
-                <span class="interest-tag">Graph Machine Learning</span>
-                <span class="interest-tag">Complex Biological Systems</span>
-            </div>
-        </div>
-
-        <div class="publications">
-            <h2 class="section-title">Publications</h2>
-            
-            <div class="publication">
-                <div class="pub-title"><a href="https://www.nature.com/articles/s43588-024-00721-5">Interpreting single-cell and spatial omics data using deep neural network training dynamics</a></div>
-                <div class="pub-authors">J. Karin, R. Mintz, B. Raveh, M. Nitzan</div>
-                <div class="pub-venue">Nature Computational Science</div>
-                <div class="pub-year">2024</div>
+        <!-- Light green section: Everything below the buttons -->
+        <div class="green-section">
+            <div class="research-interests">
+                <h2 class="section-title">Research Interests</h2>
+                <div class="interests-list">
+                    <span class="interest-tag">Computational Biology</span>
+                    <span class="interest-tag">Graph Signal Processing</span>
+                    <span class="interest-tag">Graph Machine Learning</span>
+                    <span class="interest-tag">Complex Biological Systems</span>
+                </div>
             </div>
 
-            <div class="publication">
-                <div class="pub-title"><a href="https://www.nature.com/articles/s41587-023-01663-5">scPrisma infers, filters and enhances topological signals in single-cell data using spectral template matching</a></div>
-                <div class="pub-authors">J. Karin, Y. Bornfeld, M. Nitzan</div>
-                <div class="pub-venue">Nature Biotechnology</div>
-                <div class="pub-year">2023</div>
-            </div>
+            <div class="publications">
+                <h2 class="section-title">Publications</h2>
+                
+                <div class="publication">
+                    <div class="pub-title"><a href="https://www.nature.com/articles/s43588-024-00721-5">Interpreting single-cell and spatial omics data using deep neural network training dynamics</a></div>
+                    <div class="pub-authors">J. Karin, R. Mintz, B. Raveh, M. Nitzan</div>
+                    <div class="pub-venue">Nature Computational Science</div>
+                    <div class="pub-year">2024</div>
+                </div>
 
-            <div class="publication">
-                <div class="pub-title"><a href="https://www.arxiv.org/abs/2507.03039">Enhancing Swarms Durability to Threats via Graph Signal Processing and GNN-based Generative Modeling</a></div>
-                <div class="pub-authors">J. Karin, Z. Piran, M. Nitzan</div>
-                <div class="pub-venue">arXiv preprint arXiv:2507.03039</div>
-                <div class="pub-year">2025</div>
-            </div>
+                <div class="publication">
+                    <div class="pub-title"><a href="https://www.nature.com/articles/s41587-023-01663-5">scPrisma infers, filters and enhances topological signals in single-cell data using spectral template matching</a></div>
+                    <div class="pub-authors">J. Karin, Y. Bornfeld, M. Nitzan</div>
+                    <div class="pub-venue">Nature Biotechnology</div>
+                    <div class="pub-year">2023</div>
+                </div>
 
-            <div class="publication">
-                <div class="pub-title"><a href="https://dl.acm.org/doi/10.1145/3459930.3469525">Multirbp: multi-task neural network for protein-RNA binding prediction</a></div>
-                <div class="pub-authors">J. Karin, H. Michel, Y. Orenstein</div>
-                <div class="pub-venue">Proceedings of the 12th ACM International Conference on Bioinformatics, Computational Biology zichzelf, and Health Informatics</div>
-                <div class="pub-year">2021</div>
-            </div>
+                <div class="publication">
+                    <div class="pub-title"><a href="https://www.arxiv.org/abs/2507.03039">Enhancing Swarms Durability to Threats via Graph Signal Processing and GNN-based Generative Modeling</a></div>
+                    <div class="pub-authors">J. Karin, Z. Piran, M. Nitzan</div>
+                    <div class="pub-venue">arXiv preprint arXiv:2507.03039</div>
+                    <div class="pub-year">2025</div>
+                </div>
 
-            <div class="publication">
-                <div class="pub-title"><a href="https://www.nature.com/articles/s43588-024-00728-y">Deep learning training dynamics analysis for single-cell data</a></div>
-                <div class="pub-authors">J. Karin, R. Mintz</div>
-                <div class="pub-venue">Nature Computational Science</div>
-                <div class="pub-year">2024</div>
+                <div class="publication">
+                    <div class="pub-title"><a href="https://dl.acm.org/doi/10.1145/3459930.3469525">Multirbp: multi-task neural network for protein-RNA binding prediction</a></div>
+                    <div class="pub-authors">J. Karin, H. Michel, Y. Orenstein</div>
+                    <div class="pub-venue">Proceedings of the 12th ACM International Conference on Bioinformatics, Computational Biology zichzelf, and Health Informatics</div>
+                    <div class="pub-year">2021</div>
+                </div>
+
+                <div class="publication">
+                    <div class="pub-title"><a href="https://www.nature.com/articles/s43588-024-00728-y">Deep learning training dynamics analysis for single-cell data</a></div>
+                    <div class="pub-authors">J. Karin, R. Mintz</div>
+                    <div class="pub-venue">Nature Computational Science</div>
+                    <div class="pub-year">2024</div>
+                </div>
             </div>
         </div>
     </div>
