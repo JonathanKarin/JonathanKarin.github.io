@@ -182,6 +182,39 @@
             border-bottom-color: #0066cc;
         }
 
+        .pub-links {
+            display: inline-flex;
+            gap: 8px;
+            margin-left: 10px;
+        }
+
+        .code-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            padding: 4px 10px;
+            background: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 4px;
+            color: #555;
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 400;
+            transition: all 0.2s;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .code-link:hover {
+            background: #e9ecef;
+            color: #333;
+            transform: translateY(-1px);
+        }
+
+        .code-link svg {
+            width: 14px;
+            height: 14px;
+        }
+
         .pub-authors {
             color: #666;
             margin-bottom: 5px;
@@ -287,6 +320,12 @@
             .interests-list {
                 flex-wrap: wrap;
             }
+
+            .pub-links {
+                display: flex;
+                margin-left: 0;
+                margin-top: 8px;
+            }
         }
     </style>
 </head>
@@ -349,35 +388,85 @@
                     <h2 class="section-title">Publications</h2>
                     
                     <div class="publication">
-                        <div class="pub-title"><a href="https://www.nature.com/articles/s43588-024-00721-5">Interpreting single-cell and spatial omics data using deep neural network training dynamics</a></div>
+                        <div class="pub-title">
+                            <a href="https://www.nature.com/articles/s43588-024-00721-5">Interpreting single-cell and spatial omics data using deep neural network training dynamics</a>
+                            <span class="pub-links">
+                                <a href="https://github.com/nitzanlab/Annotatability" class="code-link" target="_blank">
+                                    <svg viewBox="0 0 16 16" fill="currentColor">
+                                        <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/>
+                                    </svg>
+                                    Code
+                                </a>
+                            </span>
+                        </div>
                         <div class="pub-authors">J. Karin, R. Mintz, B. Raveh, M. Nitzan</div>
                         <div class="pub-venue">Nature Computational Science</div>
                         <div class="pub-year">2024</div>
                     </div>
 
                     <div class="publication">
-                        <div class="pub-title"><a href="https://www.nature.com/articles/s41587-023-01663-5">scPrisma infers, filters and enhances topological signals in single-cell data using spectral template matching</a></div>
+                        <div class="pub-title">
+                            <a href="https://www.nature.com/articles/s41587-023-01663-5">scPrisma infers, filters and enhances topological signals in single-cell data using spectral template matching</a>
+                            <span class="pub-links">
+                                <a href="https://github.com/nitzanlab/scPrisma" class="code-link" target="_blank">
+                                    <svg viewBox="0 0 16 16" fill="currentColor">
+                                        <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/>
+                                    </svg>
+                                    Code
+                                </a>
+                            </span>
+                        </div>
                         <div class="pub-authors">J. Karin, Y. Bornfeld, M. Nitzan</div>
                         <div class="pub-venue">Nature Biotechnology</div>
                         <div class="pub-year">2023</div>
                     </div>
 
                     <div class="publication">
-                        <div class="pub-title"><a href="https://link.aps.org/doi/10.1103/f495-8ddd">Enhancing swarms' durability to threats via graph signal processing and graph-neural-network-based generative modeling</a></div>
+                        <div class="pub-title">
+                            <a href="https://link.aps.org/doi/10.1103/f495-8ddd">Enhancing swarms' durability to threats via graph signal processing and graph-neural-network-based generative modeling</a>
+                            <span class="pub-links">
+                                <a href="https://github.com/nitzanlab/SwaGen" class="code-link" target="_blank">
+                                    <svg viewBox="0 0 16 16" fill="currentColor">
+                                        <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/>
+                                    </svg>
+                                    Code
+                                </a>
+                            </span>
+                        </div>
                         <div class="pub-authors">J. Karin, Z. Piran, M. Nitzan</div>
                         <div class="pub-venue">Phys. Rev. E</div>
                         <div class="pub-year">2025</div>
                     </div>
 
                     <div class="publication">
-                        <div class="pub-title"><a href="https://dl.acm.org/doi/10.1145/3459930.3469525">Multirbp: multi-task neural network for protein-RNA binding prediction</a></div>
+                        <div class="pub-title">
+                            <a href="https://dl.acm.org/doi/10.1145/3459930.3469525">Multirbp: multi-task neural network for protein-RNA binding prediction</a>
+                            <span class="pub-links">
+                                <a href="https://github.com/OrensteinLab/MultiRBP" class="code-link" target="_blank">
+                                    <svg viewBox="0 0 16 16" fill="currentColor">
+                                        <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/>
+                                    </svg>
+                                    Code
+                                </a>
+                            </span>
+                        </div>
                         <div class="pub-authors">J. Karin, H. Michel, Y. Orenstein</div>
-                        <div class="pub-venue">Proceedings of the 12th ACM International Conference on Bioinformatics, Computational Biology zichzelf, and Health Informatics</div>
+                        <div class="pub-venue">Proceedings of the 12th ACM International Conference on Bioinformatics, Computational Biology, and Health Informatics</div>
                         <div class="pub-year">2021</div>
                     </div>
 
                     <div class="publication">
-                        <div class="pub-title"><a href="https://www.nature.com/articles/s43588-024-00728-y">Deep learning training dynamics analysis for single-cell data</a></div>
+                        <div class="pub-title">
+                            <a href="https://www.nature.com/articles/s43588-024-00728-y">Deep learning training dynamics analysis for single-cell data</a>
+                            <span class="pub-links">
+                                <a href="https://github.com/nitzanlab/Annotatability" class="code-link" target="_blank">
+                                    <svg viewBox="0 0 16 16" fill="currentColor">
+                                        <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/>
+                                    </svg>
+                                    Code
+                                </a>
+                            </span>
+                        </div>
                         <div class="pub-authors">J. Karin, R. Mintz</div>
                         <div class="pub-venue">Nature Computational Science</div>
                         <div class="pub-year">2024</div>
