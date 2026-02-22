@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jonathan Karin</title>
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg:        #0a0a0f;
+            --bg1:       #0f0f17;
+            --bg2:       #141420;
+            --bg3:       #1a1a2e;
+            --border:    rgba(255,255,255,0.07);
+            --border-hi: rgba(255,255,255,0.12);
+            --text:      #f0f0ff;
+            --text-2:    #8b8ba8;
+            --text-3:    #4f4f6a;
+            --accent:    #7c6aff;
+            --accent-2:  #a78bfa;
+            --accent-3:  #c4b5fd;
+            --green:     #34d399;
+            --teal:      #2dd4bf;
+            --pink:      #f472b6;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Geist', -apple-system, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+
+        .bg-mesh {
+            position: fixed; inset: 0; z-index: 0; pointer-events: none; overflow: hidden;
+        }
+        .bg-mesh::before {
+            content: '';
+            position: absolute;
+            width: 800px; height: 800px;
+            background: radial-gradient(ellipse, rgba(124,106,255,0.12) 0%, transparent 65%);
+            top: -200px; left: -100px;
+        }
+        .bg-mesh::after {
+            content: '';
+            position: absolute;
+            width: 600px; height: 600px;
+            background: radial-gradient(ellipse, rgba(52,211,153,0.07) 0%, transparent 65%);
+            bottom: 0; right: -50px;
+        }
+
+        .bg-grid {
+            position: fixed; inset: 0; z-index: 0; pointer-events: none;
+            background-image:
+                linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+            background-size: 48px 48px;
+            mask-image: radial-gradient(ellipse 80% 80% at 50% 0%, black 40%, transparent 100%);
+        }
+
+        .page {
+            max-width: 820px;
+            margin: 0 auto;
+            padding: 64px 24px 100px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* HEADER */
+        .header {
+            display: flex;
+            align-items: flex-start;
+            gap: 32px;
+            margin-bottom: 72px;
+            animation: fadeUp 0.5s ease both;
+        }
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(16px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        .avatar-col { flex-shrink: 0; position: relative; }
+        .avatar-ring {
+            position: absolute; inset: -2px;
+            border-radius: 22px;
+            background: linear-gradient(135deg, var(--accent), var(--teal), var(--pink));
+            z-index: -1; opacity: 0.7;
+        }
+        .avatar {
+            width: 80px; height: 80px;
+            border-radius: 20px;
+            object-fit: cover; display: block;
+            border: 1px solid var(--border-hi);
+        }
+
+        .header-text { flex: 1; padding-top: 4px; }
+
+        .breadcrumb {
+            font-family: 'Geist Mono', monospace;
+            font-size: 0.72rem;
+            color: var(--text-3);
+            letter-spacing: 0.04em;
+            margin-bottom: 12px;
+            display: flex; align-items: center; gap: 8px;
+        }
+        .breadcrumb .sep { opacity: 0.4; }
+
+        h1 {
+            font-size: 2rem;
+            font-weight: 600;
+            letter-spacing: -0.04em;
+            color: var(--text);
+            line-height: 1.1;
+            margin-bottom: 14px;
+        }
+
+        .tagline {
+            font-size: 0.9rem;
+            color: var(--text-2);
+            font-weight: 300;
+            line-height: 1.7;
+            max-width: 480px;
+        }
+        .tagline a { color: var(--accent-3); text-decoration: none; font-weight: 400; transition: color 0.15s; }
+        .tagline a:hover { color: #fff; }
+
+        .contact-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 22px; }
+
+        .contact-btn {
+            display: inline-flex; align-items: center; gap: 7px;
+            padding: 7px 14px;
+            background: var(--bg2);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            color: var(--text-2);
+            text-decoration: none;
+            font-size: 0.8rem; font-weight: 400;
+            transition: all 0.18s;
+        }
+        .contact-btn:hover { background: var(--bg3); border-color: var(--border-hi); color: var(--text); }
+        .contact-btn img { width: 14px; height: 14px; object-fit: contain; filter: brightness(0.7); transition: filter 0.18s; }
+        .contact-btn:hover img { filter: brightness(1); }
+
+        .divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--border), transparent);
+            margin-bottom: 64px;
+        }
+
+        .section { margin-bottom: 64px; animation: fadeUp 0.5s ease both; }
+        .section:nth-of-type(2) { animation-delay: 0.06s; }
+        .section:nth-of-type(3) { animation-delay: 0.12s; }
+
+        .section-title {
+            font-size: 0.72rem;
+            font-weight: 500;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--text-3);
+            margin-bottom: 20px;
+            display: flex; align-items: center; gap: 10px;
+        }
+        .section-title::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+
+        /* INTERESTS */
+        .interests-row { display: flex; flex-wrap: wrap; gap: 8px; }
+        .interest-chip {
+            padding: 6px 14px;
+            border-radius: 6px;
+            border: 1px solid var(--border);
+            background: var(--bg1);
+            font-size: 0.8rem;
+            color: var(--text-2);
+            font-weight: 400;
+            transition: all 0.18s;
+            cursor: default;
+        }
+        .interest-chip:hover {
+            border-color: rgba(124,106,255,0.4);
+            background: rgba(124,106,255,0.07);
+            color: var(--accent-3);
+        }
+
+        /* PUBLICATIONS */
+        .pub-list { display: flex; flex-direction: column; gap: 2px; }
+
+        .pub-item {
+            display: grid;
+            grid-template-columns: 52px 1fr auto;
+            align-items: start;
+            gap: 16px;
+            padding: 18px 20px;
+            border-radius: 10px;
+            border: 1px solid transparent;
+            transition: all 0.18s;
+            position: relative;
+        }
+        .pub-item:hover { background: var(--bg1); border-color: var(--border); }
+
+        .pub-item::before {
+            content: '';
+            position: absolute;
+            left: 0; top: 12px; bottom: 12px;
+            width: 2px; border-radius: 999px;
+            opacity: 0; transition: opacity 0.18s;
+        }
+        .pub-item:hover::before { opacity: 1; }
+        .pub-item:nth-child(1)::before { background: var(--accent); }
+        .pub-item:nth-child(2)::before { background: var(--teal); }
+        .pub-item:nth-child(3)::before { background: var(--green); }
+        .pub-item:nth-child(4)::before { background: var(--pink); }
+        .pub-item:nth-child(5)::before { background: #f59e0b; }
+
+        .pub-year {
+            font-family: 'Geist Mono', monospace;
+            font-size: 0.72rem;
+            color: var(--text-3);
+            padding-top: 3px;
+            text-align: right;
+        }
+
+        .pub-title {
+            display: block;
+            font-size: 0.88rem;
+            font-weight: 500;
+            color: var(--text);
+            text-decoration: none;
+            line-height: 1.5;
+            margin-bottom: 6px;
+            transition: color 0.15s;
+        }
+        .pub-title:hover { color: var(--accent-3); }
+
+        .pub-meta { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; }
+        .pub-authors { font-size: 0.76rem; color: var(--text-3); font-weight: 300; }
+
+        .pub-venue {
+            font-size: 0.72rem; font-weight: 500;
+            padding: 2px 8px; border-radius: 4px;
+        }
+        .pub-item:nth-child(1) .pub-venue { color: var(--accent-3); border: 1px solid rgba(124,106,255,0.2); background: rgba(124,106,255,0.06); }
+        .pub-item:nth-child(2) .pub-venue { color: var(--teal);      border: 1px solid rgba(45,212,191,0.2);  background: rgba(45,212,191,0.06); }
+        .pub-item:nth-child(3) .pub-venue { color: var(--green);     border: 1px solid rgba(52,211,153,0.2);  background: rgba(52,211,153,0.06); }
+        .pub-item:nth-child(4) .pub-venue { color: var(--pink);      border: 1px solid rgba(244,114,182,0.2); background: rgba(244,114,182,0.06); }
+        .pub-item:nth-child(5) .pub-venue { color: #f59e0b;          border: 1px solid rgba(245,158,11,0.2);  background: rgba(245,158,11,0.06); }
+
+        .pub-actions { padding-top: 2px; }
+
+        .code-btn {
+            display: inline-flex; align-items: center; gap: 5px;
+            padding: 5px 10px;
+            background: transparent;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            color: var(--text-3);
+            text-decoration: none;
+            font-family: 'Geist Mono', monospace;
+            font-size: 0.7rem;
+            white-space: nowrap;
+            transition: all 0.18s;
+        }
+        .code-btn:hover { border-color: var(--border-hi); color: var(--text-2); background: var(--bg2); }
+        .code-btn svg { width: 11px; height: 11px; }
+
+        /* FOOTER */
+        .footer {
+            display: flex; align-items: center; justify-content: space-between;
+            padding-top: 32px;
+            border-top: 1px solid var(--border);
+        }
+        .footer-left { font-size: 0.76rem; color: var(--text-3); font-weight: 300; }
+
+        .status-badge {
+            display: inline-flex; align-items: center; gap: 7px;
+            font-size: 0.74rem; color: var(--text-3);
+            font-family: 'Geist Mono', monospace;
+        }
+        .status-dot {
+            width: 6px; height: 6px;
+            border-radius: 50%;
+            background: var(--green);
+            box-shadow: 0 0 8px rgba(52,211,153,0.6);
+            animation: pulse 2.5s ease infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; box-shadow: 0 0 8px rgba(52,211,153,0.6); }
+            50%       { opacity: 0.5; box-shadow: 0 0 4px rgba(52,211,153,0.3); }
+        }
+
+        @media (max-width: 600px) {
+            .header { flex-direction: column; gap: 20px; }
+            .pub-item { grid-template-columns: 40px 1fr; }
+            .pub-actions { display: none; }
+        }
+    </style>
+</head>
+<body>
+<div class="bg-mesh"></div>
+<div class="bg-grid"></div>
+
+<div class="page">
+
+    <div class="header">
+        <div class="avatar-col">
+            <div class="avatar-ring"></div>
+            <img class="avatar" src="DSC_0038.jpg" alt="Jonathan Karin">
+        </div>
+        <div class="header-text">
+            <div class="breadcrumb">
+                <span>HUJI</span><span class="sep">/</span>
+                <span>CS&E</span><span class="sep">/</span>
+                <span>Nitzan Lab</span>
+            </div>
+            <h1>Jonathan Karin</h1>
+            <p class="tagline">
+                PhD researcher at the <a href="https://www.nitzanlab.com/">Mor Nitzan Lab</a>,
+                <a href="https://www.huji.ac.il/">Hebrew University of Jerusalem</a>.
+                Computational biology &amp; graph signal processing — linking topology
+                to function in complex biological systems.
+            </p>
+            <div class="contact-row">
+                <a class="contact-btn" href="mailto:jonathan.karin@mail.huji.ac.il"><img src="gmail.png" alt=""> Email</a>
+                <a class="contact-btn" href="https://scholar.google.com/citations?user=IQDSHwwAAAAJ"><img src="scholar.png" alt=""> Scholar</a>
+                <a class="contact-btn" href="https://www.linkedin.com/in/jonathan-karin/"><img src="linkedin.svg" alt=""> LinkedIn</a>
+                <a class="contact-btn" href="https://x.com/JonathanKarin3"><img src="twitter-icon.png" alt=""> Twitter</a>
+                <a class="contact-btn" href="https://bsky.app/profile/jonathankarin.bsky.social"><img src="bluesky-icon.png" alt=""> BlueSky</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section">
+        <div class="section-title">Research Interests</div>
+        <div class="interests-row">
+            <div class="interest-chip">Computational Biology</div>
+            <div class="interest-chip">Graph Signal Processing</div>
+            <div class="interest-chip">Graph Machine Learning</div>
+            <div class="interest-chip">Complex Biological Systems</div>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">Publications</div>
+        <div class="pub-list">
+
+            <div class="pub-item">
+                <div class="pub-year">2024</div>
+                <div class="pub-body">
+                    <a class="pub-title" href="https://www.nature.com/articles/s43588-024-00721-5">Interpreting single-cell and spatial omics data using deep neural network training dynamics</a>
+                    <div class="pub-meta">
+                        <span class="pub-authors">J. Karin, R. Mintz, B. Raveh, M. Nitzan</span>
+                        <span class="pub-venue">Nature Computational Science</span>
+                    </div>
+                </div>
+                <div class="pub-actions">
+                    <a class="code-btn" href="https://github.com/nitzanlab/Annotatability" target="_blank">
+                        <svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+                        Code
+                    </a>
+                </div>
+            </div>
+
+            <div class="pub-item">
+                <div class="pub-year">2023</div>
+                <div class="pub-body">
+                    <a class="pub-title" href="https://www.nature.com/articles/s41587-023-01663-5">scPrisma infers, filters and enhances topological signals in single-cell data using spectral template matching</a>
+                    <div class="pub-meta">
+                        <span class="pub-authors">J. Karin, Y. Bornfeld, M. Nitzan</span>
+                        <span class="pub-venue">Nature Biotechnology</span>
+                    </div>
+                </div>
+                <div class="pub-actions">
+                    <a class="code-btn" href="https://github.com/nitzanlab/scPrisma" target="_blank">
+                        <svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+                        Code
+                    </a>
+                </div>
+            </div>
+
+            <div class="pub-item">
+                <div class="pub-year">2025</div>
+                <div class="pub-body">
+                    <a class="pub-title" href="https://link.aps.org/doi/10.1103/f495-8ddd">Enhancing swarms' durability to threats via graph signal processing and GNN-based generative modeling</a>
+                    <div class="pub-meta">
+                        <span class="pub-authors">J. Karin, Z. Piran, M. Nitzan</span>
+                        <span class="pub-venue">Phys. Rev. E</span>
+                    </div>
+                </div>
+                <div class="pub-actions">
+                    <a class="code-btn" href="https://github.com/nitzanlab/SwaGen" target="_blank">
+                        <svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+                        Code
+                    </a>
+                </div>
+            </div>
+
+            <div class="pub-item">
+                <div class="pub-year">2021</div>
+                <div class="pub-body">
+                    <a class="pub-title" href="https://dl.acm.org/doi/10.1145/3459930.3469525">Multirbp: multi-task neural network for protein-RNA binding prediction</a>
+                    <div class="pub-meta">
+                        <span class="pub-authors">J. Karin, H. Michel, Y. Orenstein</span>
+                        <span class="pub-venue">ACM BCB 2021</span>
+                    </div>
+                </div>
+                <div class="pub-actions">
+                    <a class="code-btn" href="https://github.com/OrensteinLab/MultiRBP" target="_blank">
+                        <svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+                        Code
+                    </a>
+                </div>
+            </div>
+
+            <div class="pub-item">
+                <div class="pub-year">2024</div>
+                <div class="pub-body">
+                    <a class="pub-title" href="https://www.nature.com/articles/s43588-024-00728-y">Deep learning training dynamics analysis for single-cell data</a>
+                    <div class="pub-meta">
+                        <span class="pub-authors">J. Karin, R. Mintz</span>
+                        <span class="pub-venue">Nature Computational Science</span>
+                    </div>
+                </div>
+                <div class="pub-actions">
+                    <a class="code-btn" href="https://github.com/nitzanlab/Annotatability" target="_blank">
+                        <svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+                        Code
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="footer">
+        <span class="footer-left">Jonathan Karin · Hebrew University of Jerusalem</span>
+        <div class="status-badge">
+            <div class="status-dot"></div>
+            open to collaboration
+        </div>
+    </div>
+
+</div>
+</body>
+</html>
